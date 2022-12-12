@@ -31,19 +31,16 @@ input_neuron = images.shape[1]
 hidden_neuron = 100
 output_neurons = 10
 images_to_be_trained = images.shape[0]
-image_size = sample.shape[0]
-
+input_height = sample.shape[0]
 kernel_size = 3
-depth = 1
-output_shape = ( image_size - kernel_size + 1, image_size - kernel_size + 1)
-kernel_shape = np.random.uniform(-1, 1, size=(kernel_size,kernel_size))
-
-stride_array = np.random.uniform(-1, 1, size=output_shape)
-output = stride_array
+depth = 3
+input_depth = 3
+output_shape = (depth, input_height - kernel_size + 1, input_height - kernel_size + 1)
+kernel_shape = np.random.uniform(-1, 1, size=(depth, input_depth, kernel_size, kernel_size))
+biases_shape = np.random.uniform(-1, 1, size=(output_shape))
+output = np.copy(biases_shape)
 # The output from convolution the image with the filter.
-for i in range(image_size - 2):
+for i in range(input_height - 2):
     for j in range(50):
         output += signal.correlate2d(images[i], kernel_shape[i, j], "valid")
-
-
-
+        print(output)
