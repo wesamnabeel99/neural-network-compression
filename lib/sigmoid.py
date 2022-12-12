@@ -1,5 +1,5 @@
-import numpy
+import numpy as np
 
 
-def sigmoid(logit):
-    return 1.0 / (1 + numpy.exp(-logit))
+def sigmoid(x):
+    return 1.0 / (1 + np.exp(-x))
