@@ -6,37 +6,22 @@ Descripation: This is to implement multi neural network
 """
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
 
 from lib.dnn_layers import dnn_layers
 from lib.sigmoid import sigmoid
+from utils.read_mnist_data import read_mnist_data
 
 dnn = dnn_layers()
 
 # extracting the image
-data_train = pd.read_csv("dataset/mnist_train.csv", header=None, nrows=1500).values
-data_test = pd.read_csv("dataset/mnist_test.csv", header=None, nrows=100).values
-images_train, labels_train = data_train[:, 1:], data_train[:, 0]
-images_test, labels_test = data_test[:, 1:], data_test[:, 0]
+images_train, labels_train = read_mnist_data("dataset/mnist_train.csv",1000)
+images_test, labels_test = read_mnist_data("dataset/mnist_test.csv",100)
 
-# Normalize the image features
-images_train = images_train / 255.0
-images_test = images_test / 255.0
-
-# Taking sample_train image for training
-sample_train = images_train[[0], :].reshape(28, 28)
-plt.imshow(sample_train)
-plt.savefig("temp/train_image.png")
-
-# Taking sample_train image for testing
-sample_test = images_test[[0], :].reshape(28, 28)
-plt.imshow(sample_test)
-plt.savefig("temp/test_image.png")
 
 one_hot_encoding = np.eye(10)[labels_train.astype(int)]
 
 # Defining the convolutional parameters
-image_size = sample_train.shape[0]
+image_size = images_train[0].shape[0]
 n_kernels = 3
 n_channels = 1
 
