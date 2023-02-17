@@ -1,8 +1,7 @@
 """
-Author: Abdullah Haware Theeb
-Data: November 2, 2022
-Descripation: This is to implement multi neural network
-
+Author: Abdullah H. Theeb, Wesam N. Shawqi
+Date: November 2, 2022
+Description: multi neural network implementation
 """
 import numpy as np
 from utils import constants
