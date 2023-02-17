@@ -9,9 +9,5 @@ def read_mnist_data(dataset_path, rows_count):
 
     # Normalize the image features
     images = images / 255.0
-    # Taking sample image from the dataset
-    sample = images[[0], :].reshape(28, 28)
-    plt.imshow(sample)
-    plt.savefig("temp/sample_image.png")
 
     return images, labels
