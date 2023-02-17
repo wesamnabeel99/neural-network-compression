@@ -5,14 +5,14 @@ Descripation: This is to implement multi neural network
 
 """
 import numpy as np
-
+from utils import constants
 from lib.cnn import cnn
 from lib.dnn_layers import dnn_layers
 from utils.read_mnist_data import read_mnist_data
 
 # extracting the image
-images_train, labels_train = read_mnist_data("dataset/mnist_train.csv", 1000)
-images_test, labels_test = read_mnist_data("dataset/mnist_test.csv", 100)
+images_train, labels_train = read_mnist_data(constants.MNIST_TRAIN_FILEPATH, constants.TRAIN_SAMPLE_SIZE)
+images_test, labels_test = read_mnist_data(constants.MNIST_TEST_FILEPATH, constants.TEST_SAMPLE_SIZE)
 
 # Defining the hyperparameter
 input_neurons = images_train.shape[1]
