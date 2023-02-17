@@ -9,6 +9,7 @@ class dnn_layers:
         self.input_neurons = input_neurons
         self.hidden_neurons = hidden_neurons
         self.output_neurons = output_neurons
+        print("built a neural network with %d input, %d hidden, %d output" %(self.input_neurons,self.hidden_neurons,self.output_neurons))
         self.__hidden_weights = np.random.uniform(-1, 1, size=(hidden_neurons, input_neurons))
         self.__output_weights = np.random.uniform(-1, 1, size=(output_neurons, hidden_neurons))
 
