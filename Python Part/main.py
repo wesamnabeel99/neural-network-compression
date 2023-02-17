@@ -28,7 +28,16 @@ n_channels = 1
 output_shape = (image_size - n_kernels + 1, image_size - n_kernels + 1)
 kernel_shape = np.random.uniform(-1, 1, size=(n_kernels, n_kernels))
 stride_array = np.random.uniform(-1, 1, size=output_shape)
+
+# For the training
 images_filtered = cnn.convolve(images_train, kernel_shape)
+final_images = cnn.pool(images_filtered)
+final_images = final_images.flatten()
+
+# For the testing
+images_filtered = cnn.convolve(images_test, kernel_shape)
+final_images = cnn.pool(images_filtered)
+final_images = final_images.flatten()
 
 dnn = dnn_layers(input_neurons, hidden_neurons, output_neurons)
 
