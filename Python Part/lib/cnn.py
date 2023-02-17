@@ -2,8 +2,6 @@ import numpy as np
 
 
 class cnn:
-    def __int__(self):
-        print(self)
 
     def convolve(self, image, kernel):
         output = np.zeros([100, 676], dtype=float, order='C')

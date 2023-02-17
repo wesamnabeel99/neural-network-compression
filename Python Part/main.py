@@ -36,7 +36,6 @@ stride_array = np.random.uniform(-1, 1, size=output_shape)
 images_filtered = cnn.convolve(images_train, kernel_shape)
 
 dnn.evaluate_model(
-    epoch_size=100, alpha=0.01, images_test=images_test,
+    epoch_size=100, alpha=0.1, images_test=images_test,
     labels_test=labels_test, images_train=images_train, labels_train=labels_train
 )
-
