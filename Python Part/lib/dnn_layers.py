@@ -25,8 +25,8 @@ class dnn_layers:
         )
 
     def __train(self, alpha, images, labels):
-
         one_hot_encoding = np.eye(self.output_neurons)[labels.astype(int)]
+
         accum_acc = 0
         for i in range(images.shape[0]):
             hidden_logit = np.dot(images[i, :], self.__hidden_weights.T)
@@ -51,7 +51,7 @@ class dnn_layers:
     def __test(self, images, labels):
         accum_acc = 0
         for i in range(images.shape[0]):
-            hidden_logit = np.dot(images, self.__hidden_weights.T)
+            hidden_logit = np.dot(images[i, :], self.__hidden_weights.T)
             hidden_output = sigmoid(hidden_logit)
 
             output_logit = np.dot(hidden_output, self.__output_weights.T)
