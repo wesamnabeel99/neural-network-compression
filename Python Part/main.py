@@ -20,10 +20,6 @@ hidden_neurons = 100
 output_neurons = 10
 
 cnn = cnn()
-dnn = dnn_layers(input_neurons, hidden_neurons, output_neurons)
-
-one_hot_encoding = np.eye(10)[labels_train.astype(int)]
-
 # Defining the convolutional parameters
 image_size = images_train[0].shape[0]
 n_kernels = 3
@@ -34,6 +30,8 @@ output_shape = (image_size - n_kernels + 1, image_size - n_kernels + 1)
 kernel_shape = np.random.uniform(-1, 1, size=(n_kernels, n_kernels))
 stride_array = np.random.uniform(-1, 1, size=output_shape)
 images_filtered = cnn.convolve(images_train, kernel_shape)
+
+dnn = dnn_layers(input_neurons, hidden_neurons, output_neurons)
 
 dnn.evaluate_model(
     epoch_size=100, alpha=0.1, images_test=images_test,
