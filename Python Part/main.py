@@ -28,9 +28,10 @@ n_channels = 1
 output_shape = (image_size - n_kernels + 1, image_size - n_kernels + 1)
 kernel_shape = np.random.uniform(-1, 1, size=(n_kernels, n_kernels))
 stride_array = np.random.uniform(-1, 1, size=output_shape)
+# no need for line 32 !!!!   not here mate.
 images_filtered = cnn.convolve(images_train, kernel_shape)
 
-dnn = dnn_layers(input_neurons, hidden_neurons, output_neurons)
+dnn = dnn_layers(input_neurons, hidden_neurons, output_neurons, kernel_shape)
 
 dnn.evaluate_model(
     epoch_size=100, alpha=0.1, images_test=images_test,

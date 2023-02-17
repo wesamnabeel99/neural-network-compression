@@ -24,12 +24,15 @@ class dnn_layers:
             training_sample_size=images_train.shape[0], testing_sample_size=images_test.shape[0], alpha=alpha
         )
 
-    def __train(self, alpha, images, labels):
-        one_hot_encoding = np.eye(self.output_neurons)[labels.astype(int)]
+    def __train(self, alpha, images_train, labels, kernel_shape):
 
+        one_hot_encoding = np.eye(self.output_neurons)[labels.astype(int)]
         accum_acc = 0
-        for i in range(images.shape[0]):
-            hidden_logit = np.dot(images[i, :], self.__hidden_weights.T)
+        for i in range(images_train.shape[0]):
+            images_2d = images_train[i].reshape(28, 28)
+            images_filtered =cnn.convolve(images_2d, kernel_shape)
+            final_image = cnn.pool(images_filtered)
+            hidden_logit = np.dot(final_image.flatten(), self.__hidden_weights.T)
             hidden_output = sigmoid(hidden_logit)
 
             output_logit = np.dot(hidden_output, self.__output_weights.T)
@@ -48,10 +51,13 @@ class dnn_layers:
 
         return (accum_acc / len(labels)) * 100
 
-    def __test(self, images, labels):
+    def __test(self, images_test, labels, kernel_shape):
         accum_acc = 0
-        for i in range(images.shape[0]):
-            hidden_logit = np.dot(images[i, :], self.__hidden_weights.T)
+        for i in range(images_test.shape[0]):
+            images_2d = images_test[i].reshape(28, 28)
+            images_filtered = cnn.convolve(images_2d, kernel_shape)
+            final_image = cnn.pool(images_filtered)
+            hidden_logit = np.dot(final_image.flatten(), self.__hidden_weights.T)
             hidden_output = sigmoid(hidden_logit)
 
             output_logit = np.dot(hidden_output, self.__output_weights.T)
