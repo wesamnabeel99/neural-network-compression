@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from utils.date_helper import get_time_format
 
 
-def generate_report(accuracy_train, accuracy_test,epoch_size,training_sample_size,testing_sample_size,alpha):
+def generate_report(accuracy_train, accuracy_test,epoch_size,training_sample_size,testing_sample_size,alpha,input,hidden,output):
     print("final training accuracy = %.3f" % accuracy_train[-1])
     print("final test accuracy = %.3f" % accuracy_test[-1])
 
@@ -24,6 +24,7 @@ def generate_report(accuracy_train, accuracy_test,epoch_size,training_sample_siz
         f.write(f"Training Sample Size: {training_sample_size},")
         f.write(f"Testing Sample Size: {testing_sample_size},")
         f.write(f"Alpha: {alpha}\n")
+        f.write(f"Hyper Parameters - Input: {input}, Hidden: {hidden}, Output: {output}\n ")
 
         # Write the header for the accuracy results
         f.write("Epoch,Train Accuracy,Test Accuracy\n")

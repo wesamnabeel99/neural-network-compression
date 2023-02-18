@@ -9,7 +9,8 @@ class dnn_layers:
         self.input_neurons = input_neurons
         self.hidden_neurons = hidden_neurons
         self.output_neurons = output_neurons
-        print("built a neural network with %d input, %d hidden, %d output" %(self.input_neurons,self.hidden_neurons,self.output_neurons))
+        print("built a neural network with %d input, %d hidden, %d output" % (
+        self.input_neurons, self.hidden_neurons, self.output_neurons))
         self.__hidden_weights = np.random.uniform(-1, 1, size=(hidden_neurons, input_neurons))
         self.__output_weights = np.random.uniform(-1, 1, size=(output_neurons, hidden_neurons))
 
@@ -17,15 +18,19 @@ class dnn_layers:
         accuracy_train = []
         accuracy_test = []
         for epoch in range(epoch_size):
+            print(f"================----- epoch: {epoch} -----================")
             accuracy_train.append(self.__train(alpha=alpha, labels=labels_train, images=images_train))
             accuracy_test.append(self.__test(images=images_test, labels=labels_test))
 
         generate_report(
             accuracy_train=accuracy_train, accuracy_test=accuracy_test, epoch_size=epoch_size,
-            training_sample_size=images_train.shape[0], testing_sample_size=images_test.shape[0], alpha=alpha
+            training_sample_size=images_train.shape[0], testing_sample_size=images_test.shape[0], alpha=alpha,
+            input=self.input_neurons, hidden=self.hidden_neurons, output=self.output_neurons
         )
+        print(f"training is done and report is generated")
 
     def __train(self, alpha, images, labels):
+        print("---backward propagation start---")
         one_hot_encoding = np.eye(self.output_neurons)[labels.astype(int)]
 
         accum_acc = 0
@@ -47,9 +52,12 @@ class dnn_layers:
             evaluation = 1.0 * (winning_class == labels[i])
             accum_acc += evaluation
 
+        print("###backward propagation end###")
+
         return (accum_acc / len(labels)) * 100
 
     def __test(self, images, labels):
+        print("---forward propagation start---")
         accum_acc = 0
         for i in range(images.shape[0]):
             hidden_logit = np.dot(images[i, :], self.__hidden_weights.T)
@@ -62,5 +70,7 @@ class dnn_layers:
             # compare the  winning class with the ground truth
             evaluation = 1.0 * (winning_class == labels[i])
             accum_acc += evaluation
+
+        print("###forward propagation end###")
 
         return accum_acc / len(labels) * 100
