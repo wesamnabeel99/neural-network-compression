@@ -19,13 +19,26 @@ cnn = cnn_layers()
 n_kernels = 3
 
 # Setting the shapes and sizes for convolution operation
-kernel_shape = np.random.uniform(-1, 1, size=(n_kernels, n_kernels))
+kernel_shape = np.random.uniform(0, 1, size=(n_kernels, n_kernels))
 
-# images_train = cnn.convolve(images_train, kernel_shape)
-# images_train = cnn.pool(images_train) TODO: fix pooling
+# normalize the kernel
+kernel_sum = np.sum(kernel_shape)
+if kernel_sum != 0:
+    kernel_shape = kernel_shape / kernel_sum
 
-# images_test = cnn.convolve(images_test, kernel_shape) #TODO : check convolution
-# images_test = cnn.pool(images_test) TODO: fix pooling
+
+for i in range(images_train.shape[0]):
+    images = images_train[i].reshape(28, 28)
+    images = cnn.convolve(images, kernel_shape)
+    images = cnn.pool(images)
+    images = images.flatten()
+
+for i in range(images_test.shape[0]):
+    images = images_test[i].reshape(28, 28)
+    images = cnn.convolve(images, kernel_shape)
+    images = cnn.pool(images)
+    images = images.flatten()
+
 
 # Defining the hyperparameter
 input_neurons = images_train.shape[1]
@@ -38,3 +51,4 @@ dnn.evaluate_model(
     epoch_size=100, alpha=0.1, images_test=images_test,
     labels_test=labels_test, images_train=images_train, labels_train=labels_train
 )
+print("hi")
