@@ -3,6 +3,7 @@ Author: Abdullah H. Theeb, Wesam N. Shawqi
 Date: November 2, 2022
 Description: multi neural network implementation
 """
+import winsound
 import numpy as np
 from utils import constants
 from lib.cnn import cnn_layers
@@ -43,3 +44,4 @@ dnn.evaluate_model(
     epoch_size=100, alpha=0.1, images_test=images_test,
     labels_test=labels_test, images_train=images_train, labels_train=labels_train
 )
+winsound.Beep(440, 1000)
