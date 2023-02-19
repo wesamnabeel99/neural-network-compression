@@ -29,7 +29,7 @@ class dnn_layers:
         print(f"training is done and report is generated")
 
     def __train(self, alpha, images, labels):
-        print("---backward propagation start---")
+        print("<<<<<-----------backward")
         one_hot_encoding = np.eye(self.output_neurons)[labels.astype(int)]
 
         accum_acc = 0
@@ -51,12 +51,13 @@ class dnn_layers:
             evaluation = 1.0 * (winning_class == labels[i])
             accum_acc += evaluation
 
-        print("###backward propagation end###")
+        print(f"training accuracy: {(accum_acc / len(labels)) * 100}")
+        print("###backward finished###")
 
         return (accum_acc / len(labels)) * 100
 
     def __test(self, images, labels):
-        print("---forward propagation start---")
+        print("forward-------------->>>>>>")
         accum_acc = 0
         for i in range(images.shape[0]):
             hidden_logit = np.dot(images[i, :], self.__hidden_weights.T)
@@ -70,6 +71,6 @@ class dnn_layers:
             evaluation = 1.0 * (winning_class == labels[i])
             accum_acc += evaluation
 
-        print("###forward propagation end###")
-
+        print(f"test accuracy: {(accum_acc / len(labels)) * 100}")
+        print("###forward finished###")
         return accum_acc / len(labels) * 100
