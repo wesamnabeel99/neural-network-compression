@@ -13,22 +13,22 @@ class dnn_layers:
         self.__hidden_weights = np.random.uniform(-1, 1, size=(hidden_neurons, input_neurons))
         self.__output_weights = np.random.uniform(-1, 1, size=(output_neurons, hidden_neurons))
 
-    def evaluate_model(self, epoch_size, alpha, images_train, labels_train, images_test, labels_test):
+    def evaluate_model(self, epoch_size, alpha, images_train, labels_train, images_test, labels_test,model_name):
         accuracy_train = []
         accuracy_test = []
         for epoch in range(epoch_size):
             print(f"================----- epoch: {epoch} -----================")
-            accuracy_train.append(self.__train(alpha=alpha, labels=labels_train, images=images_train))
-            accuracy_test.append(self.__test(images=images_test, labels=labels_test))
+            accuracy_train.append(self.backward(alpha=alpha, labels=labels_train, images=images_train))
+            accuracy_test.append(self.forward(images=images_test, labels=labels_test))
 
         generate_report(
             accuracy_train=accuracy_train, accuracy_test=accuracy_test, epoch_size=epoch_size,
             training_sample_size=images_train.shape[0], testing_sample_size=images_test.shape[0], alpha=alpha,
-            input=self.input_neurons, hidden=self.hidden_neurons, output=self.output_neurons
+            input=self.input_neurons, hidden=self.hidden_neurons, output=self.output_neurons,model_name = model_name
         )
         print(f"training is done and report is generated")
 
-    def __train(self, alpha, images, labels):
+    def backward(self, alpha, images, labels):
         print("<<<<<-----------backward")
         one_hot_encoding = np.eye(self.output_neurons)[labels.astype(int)]
 
@@ -56,7 +56,7 @@ class dnn_layers:
 
         return (accum_acc / len(labels)) * 100
 
-    def __test(self, images, labels):
+    def forward(self, images, labels):
         print("forward-------------->>>>>>")
         accum_acc = 0
         for i in range(images.shape[0]):
