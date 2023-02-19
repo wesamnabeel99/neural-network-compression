@@ -4,47 +4,31 @@ Date: November 2, 2022
 Description: multi neural network implementation
 """
 import winsound
-from utils import constants
+
 from lib.cnn import cnn_layers
 from lib.dnn_layers import dnn_layers
-from utils.read_mnist_data import read_mnist_data
+from utils import constants
 from utils.image_helper import *
+from utils.read_mnist_data import read_mnist_data
 
 # extracting the image
 images_train, labels_train = read_mnist_data(constants.MNIST_TRAIN_FILEPATH, constants.TRAIN_SAMPLE_SIZE)
 images_test, labels_test = read_mnist_data(constants.MNIST_TEST_FILEPATH, constants.TEST_SAMPLE_SIZE)
 
-cnn = cnn_layers()
-
-# Defining the convolutional parameters
-n_kernels = 3
-
-# Setting the shapes and sizes for convolution operation
-kernel_shape = np.random.uniform(0, 1, size=(n_kernels, n_kernels))
-
-# normalize the kernel
-kernel_sum = np.sum(kernel_shape)
-if kernel_sum != 0:
-    kernel_shape = kernel_shape / kernel_sum
+cnn = cnn_layers(n_kernels=3)
 
 images_train = reshape_all_images(images_train)
 images_test = reshape_all_images(images_test)
 
-images_train = cnn.convolve(images_train, kernel_shape)
+images_train = cnn.convolve(images_train)
 images_train = cnn.pool(images_train)
 images_train = flatten_all_images(images_train)
 
-images_test = cnn.convolve(images_test, kernel_shape)
+images_test = cnn.convolve(images_test)
 images_test = cnn.pool(images_test)
 images_test = flatten_all_images(images_test)
 
-
-# Defining the hyperparameter
-input_neurons = images_train.shape[1]
-hidden_neurons = 100
-output_neurons = 10
-
-dnn = dnn_layers(input_neurons, hidden_neurons, output_neurons)
+dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=100, output_neurons=10)
 
 dnn.evaluate_model(
     epoch_size=50, alpha=0.1, images_test=images_test,
