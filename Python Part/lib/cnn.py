@@ -4,6 +4,7 @@ import numpy as np
 class cnn_layers():
     def __init__(self, n_kernels):
         # Setting the shapes and sizes for convolution operation
+        np.random.seed(1000)
         self.kernel = np.random.uniform(0, 1, size=(n_kernels, n_kernels))
 
         # normalize the kernel
