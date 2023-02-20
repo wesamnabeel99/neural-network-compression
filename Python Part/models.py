@@ -6,7 +6,9 @@ from utils.image_helper import *
 def model_one(images_train, labels_train, images_test, labels_test):
     model_name = "cnn_pooling_dnn"
 
-    print(f"=======---------model {model_name} has started---------=======")
+    print("\n\n")
+    print(f"=======---------model (({model_name})) has started---------=======")
+    print("\n\n")
     images_train = reshape_all_images(images_train)
     images_test = reshape_all_images(images_test)
 
@@ -23,15 +25,19 @@ def model_one(images_train, labels_train, images_test, labels_test):
     dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=100, output_neurons=10)
 
     dnn.evaluate_model(
-        epoch_size=50, alpha=0.1, images_test=images_test,
+        epoch_size=50, alpha=0.5, images_test=images_test,
         labels_test=labels_test, images_train=images_train, labels_train=labels_train, model_name=model_name
     )
-    print(f"=======---------model {model_name} finished---------=======")
+    print("\n\n")
+    print(f"=======---------model (({model_name})) finished---------=======")
+    print("\n\n")
 
 
 def model_two(images_train, labels_train, images_test, labels_test):
     model_name = "cnn_dnn"
-    print(f"=======---------model {model_name} has started---------=======")
+    print("\n\n")
+    print(f"=======---------model (({model_name})) has started---------=======")
+    print("\n\n")
 
     images_train = reshape_all_images(images_train)
     images_test = reshape_all_images(images_test)
@@ -47,28 +53,35 @@ def model_two(images_train, labels_train, images_test, labels_test):
     dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=100, output_neurons=10)
 
     dnn.evaluate_model(
-        epoch_size=50, alpha=0.1, images_test=images_test,
+        epoch_size=50, alpha=0.5, images_test=images_test,
         labels_test=labels_test, images_train=images_train, labels_train=labels_train, model_name=model_name
     )
-    print(f"=======---------model {model_name} finished---------=======")
+    print("\n\n")
+    print(f"=======---------model (({model_name})) finished---------=======")
+    print("\n\n")
 
 
 def model_three(images_train, labels_train, images_test, labels_test):
     model_name = "dnn"
-    print(f"=======---------model {model_name} has started---------=======")
-
+    print("\n\n")
+    print(f"=======---------model (({model_name})) has started---------=======")
+    print("\n\n")
     dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=100, output_neurons=10)
 
     dnn.evaluate_model(
-        epoch_size=50, alpha=0.1, images_test=images_test,
+        epoch_size=50, alpha=0.5, images_test=images_test,
         labels_test=labels_test, images_train=images_train, labels_train=labels_train, model_name="dnn"
     )
-    print(f"=======---------model {model_name} finished---------=======")
+    print("\n\n")
+    print(f"=======---------model (({model_name})) finished---------=======")
+    print("\n\n")
 
 
 def model_four(images_train, labels_train, images_test, labels_test):
     model_name = "pooling_dnn"
-    print(f"=======---------model {model_name} has started---------=======")
+    print("\n\n")
+    print(f"=======---------model (({model_name})) has started---------=======")
+    print("\n\n")
 
     images_train = reshape_all_images(images_train)
     images_test = reshape_all_images(images_test)
@@ -84,15 +97,19 @@ def model_four(images_train, labels_train, images_test, labels_test):
     dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=100, output_neurons=10)
 
     dnn.evaluate_model(
-        epoch_size=50, alpha=0.1, images_test=images_test,
+        epoch_size=50, alpha=0.5, images_test=images_test,
         labels_test=labels_test, images_train=images_train, labels_train=labels_train, model_name=model_name
     )
-    print(f"=======---------model {model_name} finished---------=======")
+    print("\n\n")
+    print(f"=======---------model (({model_name})) finished---------=======")
+    print("\n\n")
 
 
 def model_five(images_test, labels_test):
     model_name = "cnn_dnn_forward"
-    print(f"=======---------model {model_name} has started---------=======")
+    print("\n\n")
+    print(f"=======---------model (({model_name})) has started---------=======")
+    print("\n\n")
 
     images_test = reshape_all_images(images_test)
 
@@ -105,4 +122,6 @@ def model_five(images_test, labels_test):
 
     accuracy = dnn.forward(images_test, labels_test)
     print(f"model {model_name} accuracy: {accuracy}")
-    print(f"=======---------model {model_name} finished---------=======")
+    print("\n\n")
+    print(f"=======---------model (({model_name})) finished---------=======")
+    print("\n\n")

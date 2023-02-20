@@ -26,3 +26,5 @@ winsound.Beep(440, 1000)
 
 model_five(images_test,labels_test)
 winsound.Beep(440, 1000)
+
+winsound.Beep(800, 500)
