@@ -15,7 +15,7 @@ class network_models:
         self.hidden = hidden
 
     def model_one(self):
-        model_name = "cnn_pooling_dnn"
+        model_name = "cnn_pooling_fully_connected"
 
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
@@ -43,7 +43,7 @@ class network_models:
         print("\n\n")
 
     def model_two(self):
-        model_name = "cnn_dnn"
+        model_name = "cnn_fully_connected"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
         print("\n\n")
@@ -69,7 +69,7 @@ class network_models:
         print("\n\n")
 
     def model_three(self):
-        model_name = "dnn"
+        model_name = "fully_connected"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
         print("\n\n")
@@ -85,7 +85,7 @@ class network_models:
         print("\n\n")
 
     def model_four(self):
-        model_name = "pooling_dnn"
+        model_name = "pooling_fully_connected"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
         print("\n\n")
@@ -111,7 +111,7 @@ class network_models:
         print("\n\n")
 
     def model_five(self):
-        model_name = "cnn_dnn_forward"
+        model_name = "cnn_fully_connected_forward"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
         print("\n\n")
