@@ -9,8 +9,12 @@ from utils import constants
 from utils.read_mnist_data import read_mnist_data
 from network_models import *
 
-images_train, labels_train = read_mnist_data(constants.MNIST_TRAIN_FILEPATH, constants.TRAIN_SAMPLE_SIZE)
-images_test, labels_test = read_mnist_data(constants.MNIST_TEST_FILEPATH, constants.TEST_SAMPLE_SIZE)
+sample_size = 5000
+train_sample_size = 0.7 * sample_size
+test_sample_size = 0.3 * sample_size
+
+images_train, labels_train = read_mnist_data(constants.MNIST_TRAIN_FILEPATH, train_sample_size)
+images_test, labels_test = read_mnist_data(constants.MNIST_TEST_FILEPATH, test_sample_size)
 
 network_models = network_models(
     images_train=images_train, labels_train=labels_train, images_test=images_test, labels_test=labels_test,
@@ -20,16 +24,16 @@ network_models = network_models(
 network_models.model_one()
 winsound.Beep(440, 1000)
 
-network_models.model_two()
-winsound.Beep(440, 1000)
-
-network_models.model_three()
-winsound.Beep(440, 1000)
-
-network_models.model_four()
-winsound.Beep(440, 1000)
-
-network_models.model_five()
-winsound.Beep(440, 1000)
+# network_models.model_two()
+# winsound.Beep(440, 1000)
+#
+# network_models.model_three()
+# winsound.Beep(440, 1000)
+#
+# network_models.model_four()
+# winsound.Beep(440, 1000)
+#
+# network_models.model_five()
+# winsound.Beep(440, 1000)
 
 winsound.Beep(800, 500)
