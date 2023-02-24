@@ -24,16 +24,5 @@ network_models = network_models(
 network_models.model_one()
 winsound.Beep(440, 1000)
 
-# network_models.model_two()
-# winsound.Beep(440, 1000)
-#
-# network_models.model_three()
-# winsound.Beep(440, 1000)
-#
-# network_models.model_four()
-# winsound.Beep(440, 1000)
-#
-# network_models.model_five()
-# winsound.Beep(440, 1000)
 
 winsound.Beep(800, 500)

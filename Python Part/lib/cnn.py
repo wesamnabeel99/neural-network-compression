@@ -4,7 +4,6 @@ import numpy as np
 class cnn_layers():
     def __init__(self, n_kernels):
         # Setting the shapes and sizes for convolution operation
-        np.random.seed(1000)
         self.kernel = np.random.uniform(0, 1, size=(n_kernels, n_kernels))
 
         # normalize the kernel
@@ -13,7 +12,12 @@ class cnn_layers():
             self.kernel = self.kernel / kernel_sum
 
     def convolve(self, images):
+
+
         print("---convolution start---")
+
+        #TODO: add for loop that runs 3 times to convlove the image three times
+        # TODO: update the kernel weights randomly after each convolution
         convolution_images = []
         for image in images:
             image_height, image_width = image.shape
@@ -27,6 +31,7 @@ class cnn_layers():
         print("###convolution end###")
 
         return np.array(convolution_images)
+    # TODO: each convolved image should be returned, so it might be better to have the for loop outside.
 
     def pool(self, convolved_images):
         print("---pooling start---")
