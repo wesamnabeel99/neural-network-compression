@@ -13,7 +13,7 @@ class network_models:
         self.epoch = epoch
         self.alpha = alpha
         self.hidden = hidden
-
+        self.n_kernels = n_kernels
     def model_one(self):
         model_name = "cnn_pooling_fully_connected"
 
@@ -95,9 +95,11 @@ class network_models:
 
         images_train = self.cnn.pool(images_train)
         images_train = flatten_all_images(images_train)
+        # add concatenate for training here.
 
         images_test = self.cnn.pool(images_test)
         images_test = flatten_all_images(images_test)
+        # add concatenate for testing here.
 
         dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=self.hidden, output_neurons=10)
 

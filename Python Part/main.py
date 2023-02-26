@@ -15,6 +15,7 @@ test_sample_size = 0.3 * sample_size
 
 images_train, labels_train = read_mnist_data(constants.MNIST_TRAIN_FILEPATH, train_sample_size)
 images_test, labels_test = read_mnist_data(constants.MNIST_TEST_FILEPATH, test_sample_size)
+images = cnn_layers.convolve(images_train)
 
 network_models = network_models(
     images_train=images_train, labels_train=labels_train, images_test=images_test, labels_test=labels_test,
@@ -26,3 +27,4 @@ winsound.Beep(440, 1000)
 
 
 winsound.Beep(800, 500)
+# TODO: change the input neurons accourding to the output of the pooling( after flatten it)
