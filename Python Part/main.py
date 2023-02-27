@@ -9,7 +9,7 @@ from utils import constants
 from utils.read_mnist_data import read_mnist_data
 from network_models import *
 
-sample_size = 1000
+sample_size = 2000
 train_sample_size = 0.7 * sample_size
 test_sample_size = 0.3 * sample_size
 
