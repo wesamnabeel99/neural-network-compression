@@ -32,7 +32,7 @@ class cnn_layers():
             print("--------")
 
             all_convolution_images.append(convolution_images)
-            output2 = np.concatenate(all_convolution_images, axis=0)
+            output2 = np.concatenate(all_convolution_images, axis=1)
             print("###convolution end###")
         return output2
 

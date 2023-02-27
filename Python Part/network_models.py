@@ -31,7 +31,7 @@ class network_models:
         images_test = self.cnn.pool(images_test)
         images_test = flatten_all_images(images_test)
 
-        dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=self.hidden, output_neurons=10)
+        dnn = dnn_layers(input_neurons=507, hidden_neurons=self.hidden, output_neurons=10)
 
         dnn.evaluate_model(
             epoch_size=self.epoch, alpha=self.alpha, images_test=images_test,
