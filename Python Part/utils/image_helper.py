@@ -2,7 +2,7 @@ import numpy as np
 
 
 def reshape_all_images(one_d_images):
-    image_size = int(np.sqrt(one_d_images.shape[1]))
+    image_size = 28
     return one_d_images.reshape(one_d_images.shape[0], image_size, image_size)
 
 
