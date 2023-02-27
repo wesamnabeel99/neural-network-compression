@@ -15,16 +15,21 @@ test_sample_size = 0.3 * sample_size
 
 images_train, labels_train = read_mnist_data(constants.MNIST_TRAIN_FILEPATH, train_sample_size)
 images_test, labels_test = read_mnist_data(constants.MNIST_TEST_FILEPATH, test_sample_size)
-images = cnn_layers.convolve(images_train)
+cnn = cnn_layers(3)
 
-network_models = network_models(
-    images_train=images_train, labels_train=labels_train, images_test=images_test, labels_test=labels_test,
-    n_kernels=3, epoch=10, alpha=0.1, hidden=100
-)
+images_train = reshape_all_images(images_train)
+images = cnn.convolve(images_train)
+imaegs = cnn.pool(images_train)
 
-network_models.model_one()
-winsound.Beep(440, 1000)
-
-
-winsound.Beep(800, 500)
+# TODO: flatten the images after pooling
+# network_models = network_models(
+#     images_train=images_train, labels_train=labels_train, images_test=images_test, labels_test=labels_test,
+#     n_kernels=3, epoch=10, alpha=0.1, hidden=100
+# )
+#
+# network_models.model_one()
+# winsound.Beep(440, 1000)
+#
+#
+# winsound.Beep(800, 500)
 # TODO: change the input neurons accourding to the output of the pooling( after flatten it)
