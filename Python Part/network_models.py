@@ -23,15 +23,17 @@ class network_models:
         images_train = reshape_all_images(self.images_train)
         images_test = reshape_all_images(self.images_test)
 
-        images_train = self.cnn.convolve(images_train)
-        images_train = self.cnn.pool(images_train)
-        images_train = flatten_all_images(images_train)
+        for k in range(3):
+            self.cnn.update_kernel()
+            images_train = self.cnn.convolve(images_train)
+            images_train = self.cnn.pool(images_train)
+            images_train = flatten_all_images(images_train)
 
-        images_test = self.cnn.convolve(images_test)
-        images_test = self.cnn.pool(images_test)
-        images_test = flatten_all_images(images_test)
+            images_test = self.cnn.convolve(images_test)
+            images_test = self.cnn.pool(images_test)
+            images_test = flatten_all_images(images_test)
 
-        dnn = dnn_layers(input_neurons=507, hidden_neurons=self.hidden, output_neurons=10)
+        dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=self.hidden, output_neurons=10)
 
         dnn.evaluate_model(
             epoch_size=self.epoch, alpha=self.alpha, images_test=images_test,
@@ -95,11 +97,9 @@ class network_models:
 
         images_train = self.cnn.pool(images_train)
         images_train = flatten_all_images(images_train)
-        # add concatenate for training here.
 
         images_test = self.cnn.pool(images_test)
         images_test = flatten_all_images(images_test)
-        # add concatenate for testing here.
 
         dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=self.hidden, output_neurons=10)
 
