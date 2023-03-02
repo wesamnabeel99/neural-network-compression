@@ -21,7 +21,7 @@ network_models = network_models(
     n_kernels=3, epoch=10, alpha=0.1, hidden=100
 )
 
-network_models.model_one()
+network_models.model_six()
 winsound.Beep(440, 1000)
 
 winsound.Beep(800, 500)
