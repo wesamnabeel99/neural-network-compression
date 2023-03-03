@@ -18,8 +18,10 @@ images_test, labels_test = read_mnist_data(constants.MNIST_TEST_FILEPATH, test_s
 
 network_models = network_models(
     images_train=images_train, labels_train=labels_train, images_test=images_test, labels_test=labels_test,
-    n_kernels=3, epoch=10, alpha=0.1, hidden=100
+    n_kernels=3,kernel_size=3, epoch=10, alpha=0.1, hidden=100
 )
+
+network_models.model_one()
 
 network_models.model_six()
 winsound.Beep(440, 1000)

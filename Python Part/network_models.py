@@ -4,12 +4,12 @@ from utils.image_helper import *
 
 
 class network_models:
-    def __init__(self, images_train, labels_train, images_test, labels_test, n_kernels, epoch, alpha, hidden):
+    def __init__(self, images_train, labels_train, images_test, labels_test, n_kernels,kernel_size, epoch, alpha, hidden):
         self.images_train = images_train
         self.labels_train = labels_train
         self.images_test = images_test
         self.labels_test = labels_test
-        self.cnn = cnn_layers(n_kernels=n_kernels)
+        self.cnn = cnn_layers(n_kernels=n_kernels,kernel_size=kernel_size)
         self.epoch = epoch
         self.alpha = alpha
         self.hidden = hidden
@@ -139,11 +139,11 @@ class network_models:
         images_train = reshape_all_images(self.images_train)
         images_test = reshape_all_images(self.images_test)
 
-        images_train = self.cnn.convolve_multiple_kernels(images_train,3)
+        images_train = self.cnn.convolve_multiple_kernels(images_train)
         images_train = self.cnn.pool(images_train)
         images_train = flatten_all_images(images_train)
 
-        images_test = self.cnn.convolve_multiple_kernels(images_test,3)
+        images_test = self.cnn.convolve_multiple_kernels(images_test)
         images_test = self.cnn.pool(images_test)
         images_test = flatten_all_images(images_test)
 

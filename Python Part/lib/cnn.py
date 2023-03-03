@@ -2,10 +2,10 @@ import numpy as np
 
 
 class cnn_layers():
-    def __init__(self, n_kernels):
+    def __init__(self, n_kernels,kernel_size):
         # Setting the shapes and sizes for convolution operation
-        self.kernel = np.random.uniform(0, 1, size=(n_kernels, n_kernels))
-
+        self.kernel = np.random.uniform(0, 1, size=(kernel_size, kernel_size))
+        self.n_kernels = n_kernels
         # normalize the kernel
         kernel_sum = np.sum(self.kernel)
         if kernel_sum != 0:
@@ -25,10 +25,10 @@ class cnn_layers():
         print("###convolution end###")
         return np.array(convolution_images)
 
-    def convolve_multiple_kernels(self, images,n_kernels):
+    def convolve_multiple_kernels(self, images):
         print("---convolution start---")
         convolved_images = []
-        for kernel in range(n_kernels):
+        for kernel in range(self.n_kernels):
 
             convolution_images = []
             for image in images:
@@ -41,12 +41,7 @@ class cnn_layers():
                 convolution_images.append(output)
             print("###convolution end###")
             convolved_images.append(np.array(convolution_images))
-            self.kernel = np.random.uniform(0, 1, size=(n_kernels, n_kernels))
-            print(self.kernel)
-            # normalize the kernel
-            kernel_sum = np.sum(self.kernel)
-            if kernel_sum != 0:
-                self.kernel = self.kernel / kernel_sum
+            self.update_kernel()
 
         return np.concatenate(convolved_images,axis=1)
 
@@ -68,4 +63,8 @@ class cnn_layers():
 
     def update_kernel(self):
         # update the kernel
-        self.kernel = np.random.uniform(0, 1, size=(self.kernel.shape[0], self.kernel.shape[0]))
+        self.kernel = np.random.uniform(0, 1, size=(self.n_kernels, self.n_kernels))
+        # normalize the kernel
+        kernel_sum = np.sum(self.kernel)
+        if kernel_sum != 0:
+            self.kernel = self.kernel / kernel_sum
