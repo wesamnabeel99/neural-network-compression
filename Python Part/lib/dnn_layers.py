@@ -18,7 +18,7 @@ class dnn_layers:
         self.__hidden_weights = np.random.uniform(-1, 1, size=(hidden_neurons, input_neurons))
         self.__output_weights = np.random.uniform(-1, 1, size=(output_neurons, hidden_neurons))
 
-    def evaluate_model(self, epoch_size, alpha, images_train, labels_train, images_test, labels_test,model_name):
+    def evaluate_model(self, epoch_size, alpha, images_train, labels_train, images_test, labels_test, model_name):
         accuracy_train = []
         accuracy_test = []
         for epoch in range(epoch_size):
@@ -29,7 +29,7 @@ class dnn_layers:
         generate_report(
             accuracy_train=accuracy_train, accuracy_test=accuracy_test, epoch_size=epoch_size,
             training_sample_size=images_train.shape[0], testing_sample_size=images_test.shape[0], alpha=alpha,
-            input=self.input_neurons, hidden=self.hidden_neurons, output=self.output_neurons,model_name = model_name
+            input=self.input_neurons, hidden=self.hidden_neurons, output=self.output_neurons, model_name=model_name
         )
         print(f"training is done and report is generated")
 
@@ -39,11 +39,8 @@ class dnn_layers:
 
         accum_acc = 0
         for i in range(images.shape[0]):
-            hidden_logit = np.dot(images[i, :], self.__hidden_weights.T)
-            hidden_output = sigmoid(hidden_logit)
-
-            output_logit = np.dot(hidden_output, self.__output_weights.T)
-            final_output = sigmoid(output_logit)
+            hidden_output = self.calculate_neuron_output(images[i, :], self.__hidden_weights)
+            final_output = self.calculate_neuron_output(hidden_output, self.__output_weights)
 
             # Training part
             error = final_output - one_hot_encoding[i]
@@ -65,13 +62,9 @@ class dnn_layers:
         print("forward-------------->>>>>>")
         accum_acc = 0
         for i in range(images.shape[0]):
-            hidden_logit = np.dot(images[i, :], self.__hidden_weights.T)
-            hidden_output = sigmoid(hidden_logit)
-
-            output_logit = np.dot(hidden_output, self.__output_weights.T)
-            final_output = sigmoid(output_logit)
-
+            final_output = self.test_neural_network(images[i, :])
             winning_class = np.argmax(final_output)
+
             # compare the  winning class with the ground truth
             evaluation = 1.0 * (winning_class == labels[i])
             accum_acc += evaluation
@@ -79,3 +72,11 @@ class dnn_layers:
         print(f"test accuracy: {(accum_acc / len(labels)) * 100}")
         print("###forward finished###")
         return accum_acc / len(labels) * 100
+
+    def test_neural_network(self, image):
+        hidden_output = self.calculate_neuron_output(image, self.__hidden_weights)
+        return self.calculate_neuron_output(hidden_output, self.__output_weights)
+
+    def calculate_neuron_output(self, neuron, weight):
+        logit = np.dot(neuron, weight.T)
+        return sigmoid(logit)
