@@ -157,3 +157,22 @@ class network_models:
         print("\n\n")
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
+
+    def model_seven(self):
+        model_name = "cnn_fully_connected"
+        print("\n\n")
+        print(f"=======---------model (({model_name})) has started---------=======")
+        print("\n\n")
+
+        images_test = reshape_all_images(self.images_test)
+
+        images_test = self.cnn.convolve(images_test)
+        images_test = flatten_all_images(images_test)
+
+        dnn = dnn_layers(input_neurons=images_test.shape[1], hidden_neurons=676, output_neurons=10)
+
+        accuracy = dnn.forward_without_hidden(images_test,self.labels_test)
+        print(accuracy)
+        print("\n\n")
+        print(f"=======---------model (({model_name})) finished---------=======")
+        print("\n\n")

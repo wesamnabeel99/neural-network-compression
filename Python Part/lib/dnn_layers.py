@@ -80,3 +80,18 @@ class dnn_layers:
     def calculate_neuron_output(self, neuron, weight):
         logit = np.dot(neuron, weight.T)
         return sigmoid(logit)
+
+    def forward_without_hidden(self, images, labels):
+        print("forward-------------->>>>>>")
+        accum_acc = 0
+        for i in range(images.shape[0]):
+            final_output = self.calculate_neuron_output(images[i, :], self.__output_weights)
+            winning_class = np.argmax(final_output)
+
+            # compare the  winning class with the ground truth
+            evaluation = 1.0 * (winning_class == labels[i])
+            accum_acc += evaluation
+
+        print(f"test accuracy: {(accum_acc / len(labels)) * 100}")
+        print("###forward finished###")
+        return accum_acc / len(labels) * 100
