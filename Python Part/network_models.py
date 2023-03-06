@@ -14,6 +14,7 @@ class network_models:
         self.alpha = alpha
         self.hidden = hidden
         self.n_kernels = n_kernels
+
     def model_one(self):
         model_name = "cnn_pooling_fully_connected"
 
@@ -31,7 +32,7 @@ class network_models:
         images_test = self.cnn.pool(images_test)
         images_test = flatten_all_images(images_test)
 
-        dnn = dnn_layers(input_neurons=507, hidden_neurons=self.hidden, output_neurons=10)
+        dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=self.hidden, output_neurons=10)
 
         dnn.evaluate_model(
             epoch_size=self.epoch, alpha=self.alpha, images_test=images_test,
@@ -95,11 +96,9 @@ class network_models:
 
         images_train = self.cnn.pool(images_train)
         images_train = flatten_all_images(images_train)
-        # add concatenate for training here.
 
         images_test = self.cnn.pool(images_test)
         images_test = flatten_all_images(images_test)
-        # add concatenate for testing here.
 
         dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=self.hidden, output_neurons=10)
 
@@ -127,6 +126,34 @@ class network_models:
 
         accuracy = dnn.forward(images_test, self.labels_test)
         print(f"model {model_name} accuracy: {accuracy}")
+        print("\n\n")
+        print(f"=======---------model (({model_name})) finished---------=======")
+        print("\n\n")
+
+    def model_six(self):
+        model_name = "cnn_multi_kernel_fully_connected"
+
+        print("\n\n")
+        print(f"=======---------model (({model_name})) has started---------=======")
+        print("\n\n")
+        images_train = reshape_all_images(self.images_train)
+        images_test = reshape_all_images(self.images_test)
+
+        images_train = self.cnn.convolve_multiple_kernels(images_train,3)
+        images_train = self.cnn.pool(images_train)
+        images_train = flatten_all_images(images_train)
+
+        images_test = self.cnn.convolve_multiple_kernels(images_test,3)
+        images_test = self.cnn.pool(images_test)
+        images_test = flatten_all_images(images_test)
+
+        dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=self.hidden, output_neurons=10)
+
+        dnn.evaluate_model(
+            epoch_size=self.epoch, alpha=self.alpha, images_test=images_test,
+            labels_test=self.labels_test, images_train=images_train, labels_train=self.labels_train,
+            model_name=model_name
+        )
         print("\n\n")
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
