@@ -34,3 +34,7 @@ def generate_report(accuracy_train, accuracy_test,epoch_size,training_sample_siz
         for i, (acc_train, acc_test) in enumerate(zip(accuracy_train, accuracy_test)):
             f.write(f"{i + 1},{acc_train},{acc_test}\n")
 
+
+        # TODO: pass the weights to the function after the end of the training, so that it get saved in the file
+        # f.write(f"hidden weights ${hidden_weights}\n")
+        # f.write(f"output weights ${output_weights}\n")
