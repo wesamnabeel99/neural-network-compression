@@ -166,7 +166,7 @@ class network_models:
 
         images_test = reshape_all_images(self.images_test)
 
-        images_test = self.cnn.convolve(images_test)
+        images_test = self.cnn.convolve_multiple_kernels(images_test)
         images_test = flatten_all_images(images_test)
 
         dnn = dnn_layers(input_neurons=images_test.shape[1], hidden_neurons=0, output_neurons=10)

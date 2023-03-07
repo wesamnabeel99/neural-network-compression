@@ -82,17 +82,28 @@ class dnn_layers:
         return sigmoid(logit)
 
     def forward_without_hidden(self, images, labels):
+        one_hot_encoding = np.eye(self.output_neurons)[labels.astype(int)]
+
         output_weights = np.random.uniform(-1, 1, size=(10, images.shape[1]))
+
+
         print("forward-------------->>>>>>")
-        accum_acc = 0
-        for i in range(images.shape[0]):
-            final_output = self.calculate_neuron_output(images[i, :], output_weights)
-            winning_class = np.argmax(final_output)
+        acc = []
+        for epoch in range (10):
+            accum_acc = 0
+            for i in range(images.shape[0]):
+                final_output = self.calculate_neuron_output(images[i, :], output_weights)
+                # Training part
+                error = final_output - one_hot_encoding[i]
+                output_weights -= 0.1 * np.outer(error, images[i,:])
 
-            # compare the  winning class with the ground truth
-            evaluation = 1.0 * (winning_class == labels[i])
-            accum_acc += evaluation
+                winning_class = np.argmax(final_output)
 
-        print(f"test accuracy: {(accum_acc / len(labels)) * 100}")
-        print("###forward finished###")
-        return accum_acc / len(labels) * 100
+                # compare the  winning class with the ground truth
+                evaluation = 1.0 * (winning_class == labels[i])
+                accum_acc += evaluation
+
+            print("###forward finished###")
+            acc.append(accum_acc / len(labels) * 100)
+        return acc
+
