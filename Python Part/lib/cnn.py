@@ -2,7 +2,7 @@ import numpy as np
 
 
 class cnn_layers():
-    def __init__(self, n_kernels,kernel_size):
+    def __init__(self, n_kernels, kernel_size):
         # Setting the shapes and sizes for convolution operation
         self.kernel = np.random.uniform(0, 1, size=(kernel_size, kernel_size))
         self.n_kernels = n_kernels
@@ -43,7 +43,7 @@ class cnn_layers():
             convolved_images.append(np.array(convolution_images))
             self.update_kernel()
 
-        return np.concatenate(convolved_images,axis=1)
+        return np.concatenate(convolved_images, axis=1)
 
     def pool(self, convolved_images):
         print("---pooling start---")
@@ -59,7 +59,6 @@ class cnn_layers():
             images.append(np.array(pool_output))
         print("###pooling end###")
         return np.array(images)
-
 
     def update_kernel(self):
         # update the kernel

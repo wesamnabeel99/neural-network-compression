@@ -4,6 +4,8 @@ from lib.sigmoid import sigmoid
 from utils.report_generator import generate_report
 
 
+# TODO: create new class that look similar to this, but have only input, output layers, move the functions that do forward and backward for (input, output) layers only to the new class
+# TODO: the goal is to make this class have (input, hidden, output) layers, and make the new class have (input, output), with their forward and backward functions
 class dnn_layers:
     def __init__(self, input_neurons, hidden_neurons, output_neurons):
         self.input_neurons = input_neurons
@@ -16,7 +18,7 @@ class dnn_layers:
         print("built a neural network with %d input, %d hidden, %d output" % (self.input_neurons, self.hidden_neurons, self.output_neurons))
         print("\n\n")
         self.__hidden_weights = np.random.uniform(-1, 1, size=(hidden_neurons, input_neurons))
-        self.__output_weights = np.random.uniform(-1, 1, size=(10, input_neurons))
+        self.__output_weights = np.random.uniform(-1, 1, size=(self.output_neurons, input_neurons)) # move this line to the new class
 
     def evaluate_model(self, epoch_size, alpha, images_train, labels_train, images_test, labels_test, model_name):
         accuracy_train = []
@@ -81,6 +83,7 @@ class dnn_layers:
         logit = np.dot(neuron, weight.T)
         return sigmoid(logit)
 
+    # TODO: move this function to the new class
     def backward_without_hidden(self, images, labels):
         one_hot_encoding = np.eye(self.output_neurons)[labels.astype(int)]
 
@@ -102,6 +105,8 @@ class dnn_layers:
 
         print("###backward finished###")
         return accum_acc / len(labels) * 100
+
+    # TODO: move this function to the new class
 
     def forward_without_hidden(self, images, labels):
         print("forward-------------->>>>>>")

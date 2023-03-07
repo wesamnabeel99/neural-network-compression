@@ -159,7 +159,7 @@ class network_models:
         print("\n\n")
 
     def model_seven(self):
-        model_name = "cnn_fully_connected"
+        model_name = "cnn_fully_connected_no_hidden"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
         print("\n\n")
@@ -167,7 +167,9 @@ class network_models:
         images_train = reshape_all_images(self.images_train)
         images_test = reshape_all_images(self.images_test)
 
+        # TODO: one kernel give better accuracy (~86% for 1 kernel, ~82% for 3 kernels) - debug the issue
         images_train = self.cnn.convolve_multiple_kernels(images_train)
+        # adding pooling layer seems to improve the accuracy
         images_train = self.cnn.pool(images_train)
         images_train = flatten_all_images(images_train)
 
@@ -177,12 +179,12 @@ class network_models:
 
         dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=0, output_neurons=10)
 
-        for epoch in range(100):
+        for epoch in range(50):
 
             back_accuracy = dnn.backward_without_hidden(images_train, self.labels_train)
             forward_accuracy = dnn.forward_without_hidden(images_test,self.labels_test)
 
-            print(f"accuracy {back_accuracy}")
+            print(f"backward {back_accuracy}")
             print(f"forward {forward_accuracy}")
 
         print("\n\n")
