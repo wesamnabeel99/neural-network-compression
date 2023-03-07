@@ -164,15 +164,27 @@ class network_models:
         print(f"=======---------model (({model_name})) has started---------=======")
         print("\n\n")
 
+        images_train = reshape_all_images(self.images_train)
         images_test = reshape_all_images(self.images_test)
 
+        images_train = self.cnn.convolve_multiple_kernels(images_train)
+        images_train = self.cnn.pool(images_train)
+        images_train = flatten_all_images(images_train)
+
         images_test = self.cnn.convolve_multiple_kernels(images_test)
+        images_test = self.cnn.pool(images_test)
         images_test = flatten_all_images(images_test)
 
-        dnn = dnn_layers(input_neurons=images_test.shape[1], hidden_neurons=0, output_neurons=10)
+        dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=0, output_neurons=10)
 
-        accuracy = dnn.forward_without_hidden(images_test,self.labels_test)
-        print(accuracy)
+        for epoch in range(100):
+
+            back_accuracy = dnn.backward_without_hidden(images_train, self.labels_train)
+            forward_accuracy = dnn.forward_without_hidden(images_test,self.labels_test)
+
+            print(f"accuracy {back_accuracy}")
+            print(f"forward {forward_accuracy}")
+
         print("\n\n")
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")

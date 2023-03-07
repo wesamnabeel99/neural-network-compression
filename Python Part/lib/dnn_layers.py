@@ -16,7 +16,7 @@ class dnn_layers:
         print("built a neural network with %d input, %d hidden, %d output" % (self.input_neurons, self.hidden_neurons, self.output_neurons))
         print("\n\n")
         self.__hidden_weights = np.random.uniform(-1, 1, size=(hidden_neurons, input_neurons))
-        self.__output_weights = np.random.uniform(-1, 1, size=(output_neurons, hidden_neurons))
+        self.__output_weights = np.random.uniform(-1, 1, size=(10, input_neurons))
 
     def evaluate_model(self, epoch_size, alpha, images_train, labels_train, images_test, labels_test, model_name):
         accuracy_train = []
@@ -81,29 +81,39 @@ class dnn_layers:
         logit = np.dot(neuron, weight.T)
         return sigmoid(logit)
 
-    def forward_without_hidden(self, images, labels):
+    def backward_without_hidden(self, images, labels):
         one_hot_encoding = np.eye(self.output_neurons)[labels.astype(int)]
 
-        output_weights = np.random.uniform(-1, 1, size=(10, images.shape[1]))
 
 
+        print("backward-------------->>>>>>")
+        accum_acc = 0
+        for i in range(images.shape[0]):
+            final_output = self.calculate_neuron_output(images[i, :], self.__output_weights)
+            # Training part
+            error = final_output - one_hot_encoding[i]
+            self.__output_weights -= 0.1 * np.outer(error, images[i,:])
+
+            winning_class = np.argmax(final_output)
+
+            # compare the  winning class with the ground truth
+            evaluation = 1.0 * (winning_class == labels[i])
+            accum_acc += evaluation
+
+        print("###backward finished###")
+        return accum_acc / len(labels) * 100
+
+    def forward_without_hidden(self, images, labels):
         print("forward-------------->>>>>>")
-        acc = []
-        for epoch in range (10):
-            accum_acc = 0
-            for i in range(images.shape[0]):
-                final_output = self.calculate_neuron_output(images[i, :], output_weights)
-                # Training part
-                error = final_output - one_hot_encoding[i]
-                output_weights -= 0.1 * np.outer(error, images[i,:])
+        accum_acc = 0
+        for i in range(images.shape[0]):
+            final_output = self.calculate_neuron_output(images[i, :], self.__output_weights)
 
-                winning_class = np.argmax(final_output)
+            winning_class = np.argmax(final_output)
 
-                # compare the  winning class with the ground truth
-                evaluation = 1.0 * (winning_class == labels[i])
-                accum_acc += evaluation
+            # compare the  winning class with the ground truth
+            evaluation = 1.0 * (winning_class == labels[i])
+            accum_acc += evaluation
 
-            print("###forward finished###")
-            acc.append(accum_acc / len(labels) * 100)
-        return acc
-
+        print("###forward finished###")
+        return accum_acc / len(labels) * 100

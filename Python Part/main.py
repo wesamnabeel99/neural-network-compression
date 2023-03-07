@@ -3,13 +3,15 @@ Author: Abdullah H. Theeb, Wesam N. Shawqi
 Date: November 2, 2022
 Description: multi neural network implementation
 """
+# timeit package for measuring the run speed
+
 import winsound
 
 from utils import constants
 from utils.read_mnist_data import read_mnist_data
 from network_models import *
 
-sample_size = 2000
+sample_size = 5000
 train_sample_size = 0.7 * sample_size
 test_sample_size = 0.3 * sample_size
 
