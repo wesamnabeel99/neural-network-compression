@@ -169,7 +169,7 @@ class network_models:
         images_test = self.cnn.convolve(images_test)
         images_test = flatten_all_images(images_test)
 
-        dnn = dnn_layers(input_neurons=images_test.shape[1], hidden_neurons=676, output_neurons=10)
+        dnn = dnn_layers(input_neurons=images_test.shape[1], hidden_neurons=0, output_neurons=10)
 
         accuracy = dnn.forward_without_hidden(images_test,self.labels_test)
         print(accuracy)

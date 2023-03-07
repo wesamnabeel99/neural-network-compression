@@ -82,10 +82,11 @@ class dnn_layers:
         return sigmoid(logit)
 
     def forward_without_hidden(self, images, labels):
+        output_weights = np.random.uniform(-1, 1, size=(10, images.shape[1]))
         print("forward-------------->>>>>>")
         accum_acc = 0
         for i in range(images.shape[0]):
-            final_output = self.calculate_neuron_output(images[i, :], self.__output_weights)
+            final_output = self.calculate_neuron_output(images[i, :], output_weights)
             winning_class = np.argmax(final_output)
 
             # compare the  winning class with the ground truth
