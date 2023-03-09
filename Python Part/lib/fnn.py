@@ -2,6 +2,7 @@ import numpy as np
 from lib.sigmoid import sigmoid
 from utils.report_generator import generate_report
 
+
 class fnn_layers:
     def __init__(self, input_neurons, output_neurons):
         self.input_neurons = input_neurons
@@ -27,7 +28,9 @@ class fnn_layers:
         generate_report(
             accuracy_train=accuracy_train, accuracy_test=accuracy_test, epoch_size=epoch_size,
             training_sample_size=images_train.shape[0], testing_sample_size=images_test.shape[0], alpha=alpha,
-            input=self.input_neurons, output=self.output_neurons, model_name=model_name
+            input=self.input_neurons, output=self.output_neurons, model_name=model_name, hidden=None,
+            hidden_weights=None, output_weights=self.__output_weights
+
         )
 
     def forward_without_hidden(self, images, labels):
@@ -67,6 +70,7 @@ class fnn_layers:
 
     def test_neural_network(self, image):
         return self.calculate_neuron_output(image, self.__output_weights)
+
     def calculate_neuron_output(self, neuron, weight):
         logit = np.dot(neuron, weight.T)
         return sigmoid(logit)
