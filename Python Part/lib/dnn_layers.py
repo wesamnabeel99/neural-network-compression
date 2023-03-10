@@ -18,7 +18,7 @@ class dnn_layers:
         print("built a neural network with %d input, %d hidden, %d output" % (self.input_neurons, self.hidden_neurons, self.output_neurons))
         print("\n\n")
         self.__hidden_weights = np.random.uniform(-1, 1, size=(hidden_neurons, input_neurons))
-        self.__output_weights = np.random.uniform(-1, 1, size=(self.output_neurons, input_neurons)) # move this line to the new class
+        self.__output_weights = np.random.uniform(-1, 1, size=(self.output_neurons, hidden_neurons)) # move this line to the new class
 
     def evaluate_model(self, epoch_size, alpha, images_train, labels_train, images_test, labels_test, model_name):
         accuracy_train = []
@@ -31,7 +31,8 @@ class dnn_layers:
         generate_report(
             accuracy_train=accuracy_train, accuracy_test=accuracy_test, epoch_size=epoch_size,
             training_sample_size=images_train.shape[0], testing_sample_size=images_test.shape[0], alpha=alpha,
-            input=self.input_neurons, hidden=self.hidden_neurons, output=self.output_neurons, model_name=model_name
+            input=self.input_neurons, hidden=self.hidden_neurons, output=self.output_neurons, model_name=model_name,
+            hidden_weights=self.__hidden_weights, output_weights=self.__output_weights
         )
         print(f"training is done and report is generated")
 
