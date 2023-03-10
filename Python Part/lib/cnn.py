@@ -4,9 +4,7 @@ import numpy as np
 class cnn_layers():
     def __init__(self, n_kernels, kernel_size):
         # Setting the shapes and sizes for convolution operation
-        threshold = 0.0002
         self.kernel = np.random.uniform(0, 1, size=(kernel_size, kernel_size))
-        self.kernel[self.kernel < threshold] = 0
         self.n_kernels = n_kernels
         # normalize the kernel
         kernel_sum = np.sum(self.kernel)

@@ -83,4 +83,42 @@ class dnn_layers:
         logit = np.dot(neuron, weight.T)
         return sigmoid(logit)
 
+    # TODO: move this function to the new class
+    def backward_without_hidden(self, images, labels):
+        one_hot_encoding = np.eye(self.output_neurons)[labels.astype(int)]
 
+
+
+        print("backward-------------->>>>>>")
+        accum_acc = 0
+        for i in range(images.shape[0]):
+            final_output = self.calculate_neuron_output(images[i, :], self.__output_weights)
+            # Training part
+            error = final_output - one_hot_encoding[i]
+            self.__output_weights -= 0.1 * np.outer(error, images[i,:])
+
+            winning_class = np.argmax(final_output)
+
+            # compare the  winning class with the ground truth
+            evaluation = 1.0 * (winning_class == labels[i])
+            accum_acc += evaluation
+
+        print("###backward finished###")
+        return accum_acc / len(labels) * 100
+
+    # TODO: move this function to the new class
+
+    def forward_without_hidden(self, images, labels):
+        print("forward-------------->>>>>>")
+        accum_acc = 0
+        for i in range(images.shape[0]):
+            final_output = self.calculate_neuron_output(images[i, :], self.__output_weights)
+
+            winning_class = np.argmax(final_output)
+
+            # compare the  winning class with the ground truth
+            evaluation = 1.0 * (winning_class == labels[i])
+            accum_acc += evaluation
+
+        print("###forward finished###")
+        return accum_acc / len(labels) * 100
