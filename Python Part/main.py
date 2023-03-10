@@ -6,7 +6,8 @@ Description: multi neural network implementation
 # timeit package for measuring the run speed
 
 import winsound
-
+import timeit
+import time
 from utils import constants
 from utils.read_mnist_data import read_mnist_data
 from network_models import *
@@ -29,13 +30,13 @@ network_models = network_models(
 # network_models.model_six()
 # winsound.Beep(440, 1000)
 
-#network_models.model_one()
-#network_models.model_two()
-#network_models.model_three()
-#network_models.model_four()
-#network_models.model_five()
+# network_models.model_one()
+# network_models.model_two()
+# network_models.model_three()
+# network_models.model_four()
+# network_models.model_five()
 network_models.model_six()
-#network_models.model_seven()
+# network_models.model_seven()
 winsound.Beep(440, 1000)
 
 winsound.Beep(800, 500)
