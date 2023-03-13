@@ -22,18 +22,18 @@ class fnn_layers:
         accuracy_test = []
         for epoch in range(epoch_size):
             print(f"================----- epoch: {epoch} -----================")
-            accuracy_train.append(self.backward_without_hidden(alpha=alpha, labels=labels_train, images=images_train))
-            accuracy_test.append(self.forward_without_hidden(images=images_test, labels=labels_test))
+            accuracy_train.append(self.backward(alpha=alpha, labels=labels_train, images=images_train))
+            accuracy_test.append(self.forward(images=images_test, labels=labels_test))
 
         generate_report(
             accuracy_train=accuracy_train, accuracy_test=accuracy_test, epoch_size=epoch_size,
             training_sample_size=images_train.shape[0], testing_sample_size=images_test.shape[0], alpha=alpha,
-            input=self.input_neurons, output=self.output_neurons, model_name=model_name, hidden=None,
-            hidden_weights=None, output_weights=self.__output_weights
+            input=self.input_neurons, output=self.output_neurons, model_name=model_name, hidden=(),
+            hidden_weights=(), output_weights=self.__output_weights
 
         )
 
-    def forward_without_hidden(self, images, labels):
+    def forward(self, images, labels):
         print("forward-------------->>>>>>")
         accum_acc = 0
         for i in range(images.shape[0]):
@@ -48,7 +48,7 @@ class fnn_layers:
         print("###forward finished###")
         return accum_acc / len(labels) * 100
 
-    def backward_without_hidden(self, images, labels, alpha):
+    def backward(self, images, labels, alpha):
         one_hot_encoding = np.eye(self.output_neurons)[labels.astype(int)]
 
         print("backward-------------->>>>>>")
@@ -67,9 +67,6 @@ class fnn_layers:
 
         print("###backward finished###")
         return accum_acc / len(labels) * 100
-
-    def test_neural_network(self, image):
-        return self.calculate_neuron_output(image, self.__output_weights)
 
     def calculate_neuron_output(self, neuron, weight):
         logit = np.dot(neuron, weight.T)

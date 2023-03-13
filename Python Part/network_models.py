@@ -178,10 +178,10 @@ class network_models:
         images_test = self.cnn.pool(images_test)
         images_test = flatten_all_images(images_test)
 
-        fnn = fnn_layers(input_neurons=784, output_neurons=10)
+        fnn = fnn_layers(input_neurons=images_train.shape[1], output_neurons=10)
         fnn.evaluate_model(
-            epoch_size=self.epoch, alpha=self.alpha, images_test=self.images_test,
-            labels_test=self.labels_test, images_train=self.images_train, labels_train=self.labels_train,
+            epoch_size=self.epoch, alpha=self.alpha, images_test=images_test,
+            labels_test=self.labels_test, images_train=images_train, labels_train=self.labels_train,
             model_name="fnn"
         )
         print("\n\n")

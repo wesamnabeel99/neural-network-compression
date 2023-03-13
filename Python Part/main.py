@@ -24,19 +24,16 @@ network_models = network_models(
     n_kernels=3, kernel_size=3, epoch=40, alpha=0.1, hidden=100
 )
 
-# network_models.model_one()
-# winsound.Beep(440, 1000)
-#
-# network_models.model_six()
-# winsound.Beep(440, 1000)
 
+# winsound.Beep(440, 1000)
+# winsound.Beep(440, 1000)
 network_models.model_one()
 # network_models.model_two()
 # network_models.model_three()
 # network_models.model_four()
 # network_models.model_five()
 #network_models.model_six()
-# network_models.model_seven()
+#network_models.model_seven()
 winsound.Beep(440, 1000)
 
 winsound.Beep(800, 500)
