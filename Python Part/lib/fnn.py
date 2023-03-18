@@ -1,5 +1,5 @@
 import numpy as np
-from lib.sigmoid import sigmoid
+from lib.activation_functions import *
 from utils.report_generator import generate_report
 
 
