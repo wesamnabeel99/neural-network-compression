@@ -17,7 +17,7 @@ class network_models:
         self.hidden = hidden
         self.n_kernels = n_kernels
 
-    def model_one(self):
+    def model_1(self):
         model_name = "cnn_pooling_fully_connected"
 
         print("\n\n")
@@ -45,7 +45,7 @@ class network_models:
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
 
-    def model_two(self):
+    def model_2(self):
         model_name = "cnn_fully_connected"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
@@ -71,7 +71,7 @@ class network_models:
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
 
-    def model_three(self):
+    def model_3(self):
         model_name = "fully_connected"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
@@ -87,7 +87,7 @@ class network_models:
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
 
-    def model_four(self):
+    def model_4(self):
         model_name = "pooling_fully_connected"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
@@ -113,7 +113,7 @@ class network_models:
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
 
-    def model_five(self):
+    def model_5(self):
         model_name = "cnn_fully_connected_forward"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
@@ -132,7 +132,7 @@ class network_models:
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
 
-    def model_six(self):
+    def model_6(self):
         model_name = "cnn_multi_kernel_fully_connected"
 
         print("\n\n")
@@ -160,7 +160,7 @@ class network_models:
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
 
-    def model_seven(self):
+    def model_7(self):
         model_name = "cnn_fully_connected_no_hidden"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")

@@ -20,30 +20,18 @@ images_train, labels_train = read_mnist_data(constants.MNIST_TRAIN_FILEPATH, tra
 images_test, labels_test = read_mnist_data(constants.MNIST_TEST_FILEPATH, test_sample_size)
 
 
-user_input_start = input("start running from model number:")
-user_input_end = input("to model number:")
-
 network_models = network_models(
     images_train=images_train, labels_train=labels_train, images_test=images_test, labels_test=labels_test,
     n_kernels=3, kernel_size=3, epoch=40, alpha=0.1, hidden=100
 )
 
-for i in range(int(user_input_start),int(user_input_end)):
-    if i==1:
-        network_models.model_one()
-    elif i==2:
-        network_models.model_two()
-    elif i==3:
-        network_models.model_three()
-    elif i==4:
-        network_models.model_four()
-    elif i==5:
-        network_models.model_five()
-    elif i==6:
-        network_models.model_six()
-    elif i==7:
-        network_models.model_seven()
+while True:
+    model_number = input("Choose a model number to run (1-7), or write anything else to stop: ")
+    if not model_number.isdigit():
+        break
+    model_number = int(model_number)
+    if 1 <= model_number <= 7:
+        getattr(network_models, f"model_{model_number}")()
+        winsound.Beep(800, 500)
     else:
-        print("ther's no such model as model %d"%(i))
-
-winsound.Beep(800, 500)
+        print(f"Model {model_number} does not exist.")
