@@ -4,22 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f35aefc6-b3df-47a0-8c3a-ee7ac9306af3" name="Changes" comment="improve model choosing">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cpp Part/neural_network.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cpp Part/neural_network.ino" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Part/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Part/lib/activation_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Part/lib/cnn.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Part/lib/dnn_layers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Part/lib/fnn.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Part/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Part/network_models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Part/utils/constants.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Part/utils/date_helper.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Part/utils/image_helper.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Part/utils/read_mnist_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python Part/utils/report_generator.py" beforeDir="false" />
+    <list default="true" id="971b3f17-3a15-406a-9fb7-712d757fa700" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,19 +39,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Wesam Nabeel/PycharmProjects/neural-network-compression/Python Part/dataset&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;debugger.dataViews.python.type.renderers&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Wesam Nabeel/PycharmProjects/neural-network-compression-python/main.py",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "build.tools"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Wesam Nabeel\PycharmProjects\neural-network-compression\Python Part\dataset" />
@@ -95,21 +85,21 @@
       <method v="2" />
     </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="neural-network-compression" />
+      <module name="neural-network-compression-python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\Wesam Nabeel\PycharmProjects\neural-network-compression\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Python Part" />
+      <option name="SDK_HOME" value="C:\Users\Wesam Nabeel\PycharmProjects\neural-network-compression-python\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Python Part/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
