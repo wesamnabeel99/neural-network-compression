@@ -1,21 +1,23 @@
 from lib.cnn import cnn_layers
 from lib.dnn_layers import dnn_layers
 from utils.image_helper import *
+from lib.fnn import fnn_layers
 
 
 class network_models:
-    def __init__(self, images_train, labels_train, images_test, labels_test, n_kernels,kernel_size, epoch, alpha, hidden):
+    def __init__(self, images_train, labels_train, images_test, labels_test, n_kernels, kernel_size, epoch, alpha,
+                 hidden):
         self.images_train = images_train
         self.labels_train = labels_train
         self.images_test = images_test
         self.labels_test = labels_test
-        self.cnn = cnn_layers(n_kernels=n_kernels,kernel_size=kernel_size)
+        self.cnn = cnn_layers(n_kernels=n_kernels, kernel_size=kernel_size)
         self.epoch = epoch
         self.alpha = alpha
         self.hidden = hidden
         self.n_kernels = n_kernels
 
-    def model_one(self):
+    def model_1(self):
         model_name = "cnn_pooling_fully_connected"
 
         print("\n\n")
@@ -43,7 +45,7 @@ class network_models:
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
 
-    def model_two(self):
+    def model_2(self):
         model_name = "cnn_fully_connected"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
@@ -69,7 +71,7 @@ class network_models:
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
 
-    def model_three(self):
+    def model_3(self):
         model_name = "fully_connected"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
@@ -85,7 +87,7 @@ class network_models:
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
 
-    def model_four(self):
+    def model_4(self):
         model_name = "pooling_fully_connected"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
@@ -111,7 +113,7 @@ class network_models:
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
 
-    def model_five(self):
+    def model_5(self):
         model_name = "cnn_fully_connected_forward"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
@@ -130,7 +132,7 @@ class network_models:
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
 
-    def model_six(self):
+    def model_6(self):
         model_name = "cnn_multi_kernel_fully_connected"
 
         print("\n\n")
@@ -158,7 +160,7 @@ class network_models:
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")
 
-    def model_seven(self):
+    def model_7(self):
         model_name = "cnn_fully_connected_no_hidden"
         print("\n\n")
         print(f"=======---------model (({model_name})) has started---------=======")
@@ -167,7 +169,6 @@ class network_models:
         images_train = reshape_all_images(self.images_train)
         images_test = reshape_all_images(self.images_test)
 
-        # TODO: one kernel give better accuracy (~86% for 1 kernel, ~82% for 3 kernels) - debug the issue
         images_train = self.cnn.convolve_multiple_kernels(images_train)
         # adding pooling layer seems to improve the accuracy
         images_train = self.cnn.pool(images_train)
@@ -177,16 +178,12 @@ class network_models:
         images_test = self.cnn.pool(images_test)
         images_test = flatten_all_images(images_test)
 
-        dnn = dnn_layers(input_neurons=images_train.shape[1], hidden_neurons=0, output_neurons=10)
-
-        for epoch in range(50):
-
-            back_accuracy = dnn.backward_without_hidden(images_train, self.labels_train)
-            forward_accuracy = dnn.forward_without_hidden(images_test,self.labels_test)
-
-            print(f"backward {back_accuracy}")
-            print(f"forward {forward_accuracy}")
-
+        fnn = fnn_layers(input_neurons=images_train.shape[1], output_neurons=10)
+        fnn.evaluate_model(
+            epoch_size=self.epoch, alpha=self.alpha, images_test=images_test,
+            labels_test=self.labels_test, images_train=images_train, labels_train=self.labels_train,
+            model_name="fnn"
+        )
         print("\n\n")
         print(f"=======---------model (({model_name})) finished---------=======")
         print("\n\n")

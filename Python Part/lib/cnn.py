@@ -5,6 +5,7 @@ class cnn_layers():
     def __init__(self, n_kernels, kernel_size):
         # Setting the shapes and sizes for convolution operation
         self.kernel = np.random.uniform(0, 1, size=(kernel_size, kernel_size))
+        self.compress_kernel()
         self.n_kernels = n_kernels
         # normalize the kernel
         kernel_sum = np.sum(self.kernel)
@@ -67,3 +68,9 @@ class cnn_layers():
         kernel_sum = np.sum(self.kernel)
         if kernel_sum != 0:
             self.kernel = self.kernel / kernel_sum
+
+    def compress_kernel(self, threshold=0.4):
+
+        self.kernel[self.kernel < threshold] = 0
+        print("self.kernel", self.kernel)
+        return self.kernel
