@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f35aefc6-b3df-47a0-8c3a-ee7ac9306af3" name="Changes" comment="improve model choosing">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cpp Part/neural_network.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cpp Part/neural_network.ino" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python Part/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python Part/lib/activation_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python Part/lib/cnn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python Part/lib/dnn_layers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python Part/lib/fnn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python Part/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python Part/network_models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python Part/utils/constants.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python Part/utils/date_helper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python Part/utils/image_helper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python Part/utils/read_mnist_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python Part/utils/report_generator.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2JjNo1GVhmlYBA2LbWWGC0811V3" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Wesam Nabeel/PycharmProjects/neural-network-compression/Python Part/dataset&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;debugger.dataViews.python.type.renderers&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Wesam Nabeel\PycharmProjects\neural-network-compression\Python Part\dataset" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Wesam Nabeel\PycharmProjects\neural-network-compression\Python Part\lib" />
+      <recent name="C:\Users\Wesam Nabeel\PycharmProjects\neural-network-compression\Python Part" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="neural-network-compression" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="neural-network-compression" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Wesam Nabeel\PycharmProjects\neural-network-compression\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Python Part" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Python Part/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f35aefc6-b3df-47a0-8c3a-ee7ac9306af3" name="Changes" comment="" />
+      <created>1672587703644</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672587703644</updated>
+      <workItem from="1672587704791" duration="1712000" />
+      <workItem from="1672609106355" duration="122000" />
+      <workItem from="1672950375733" duration="688000" />
+      <workItem from="1673265546848" duration="1271000" />
+      <workItem from="1673267811984" duration="730000" />
+      <workItem from="1673269116143" duration="3205000" />
+      <workItem from="1673318214288" duration="331000" />
+      <workItem from="1673318655037" duration="112000" />
+      <workItem from="1674521673990" duration="84000" />
+      <workItem from="1674521766414" duration="1243000" />
+      <workItem from="1675205719693" duration="20000" />
+      <workItem from="1675318132573" duration="68000" />
+      <workItem from="1675319798623" duration="699000" />
+      <workItem from="1675511774701" duration="23000" />
+      <workItem from="1676481888194" duration="982000" />
+      <workItem from="1676594155015" duration="930000" />
+      <workItem from="1676596221921" duration="12257000" />
+      <workItem from="1676611192560" duration="132000" />
+      <workItem from="1676650299499" duration="25000" />
+      <workItem from="1676650405216" duration="4886000" />
+      <workItem from="1676664447517" duration="618000" />
+      <workItem from="1676684715510" duration="10592000" />
+      <workItem from="1676732842675" duration="7911000" />
+      <workItem from="1676762860251" duration="7381000" />
+      <workItem from="1676856102295" duration="4064000" />
+      <workItem from="1676901874008" duration="1532000" />
+      <workItem from="1676954061922" duration="2142000" />
+      <workItem from="1676982425394" duration="1550000" />
+      <workItem from="1677260232380" duration="1529000" />
+      <workItem from="1677336044505" duration="723000" />
+      <workItem from="1677482633608" duration="374000" />
+      <workItem from="1677489120943" duration="95000" />
+      <workItem from="1677490285859" duration="771000" />
+      <workItem from="1677584248902" duration="1242000" />
+      <workItem from="1677667726265" duration="644000" />
+      <workItem from="1677766629628" duration="3209000" />
+      <workItem from="1677823953888" duration="971000" />
+      <workItem from="1677956398993" duration="4647000" />
+      <workItem from="1678157145462" duration="414000" />
+      <workItem from="1678164218498" duration="2323000" />
+      <workItem from="1678223240531" duration="1049000" />
+      <workItem from="1678439719404" duration="840000" />
+      <workItem from="1678469297918" duration="2960000" />
+      <workItem from="1678482918883" duration="1391000" />
+      <workItem from="1679160238541" duration="6577000" />
+      <workItem from="1679425352655" duration="1677000" />
+    </task>
+    <task id="LOCAL-00001" summary="improve csv file read">
+      <created>1676482814519</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676482814519</updated>
+    </task>
+    <task id="LOCAL-00002" summary="improve code by using object-oriented programming">
+      <created>1676600920254</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676600920254</updated>
+    </task>
+    <task id="LOCAL-00003" summary="improve code and add more features for analysis">
+      <created>1676608517277</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676608517277</updated>
+    </task>
+    <task id="LOCAL-00004" summary="generate report in csv format">
+      <created>1676609720535</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1676609720535</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update .gitignore">
+      <created>1676609760157</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676609760157</updated>
+    </task>
+    <task id="LOCAL-00006" summary="remove redundant code">
+      <created>1676610178227</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1676610178227</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add constants.py">
+      <created>1676610380062</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1676610380062</updated>
+    </task>
+    <task id="LOCAL-00008" summary="modify comments">
+      <created>1676611296660</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1676611296660</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add todos'">
+      <created>1676664469335</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1676664469335</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix code and messages for debugging">
+      <created>1676697129203</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1676697129203</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add beep sound at the end of the program">
+      <created>1676747974672</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1676747974672</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix pooling issue">
+      <created>1676766480181</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1676766480181</updated>
+    </task>
+    <task id="LOCAL-00013" summary="implement cnn in oop style">
+      <created>1676767236823</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1676767236823</updated>
+    </task>
+    <task id="LOCAL-00014" summary="create multiple models to analyze">
+      <created>1676769536920</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1676769536920</updated>
+    </task>
+    <task id="LOCAL-00015" summary="modify debugging messages">
+      <created>1676859178381</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1676859178381</updated>
+    </task>
+    <task id="LOCAL-00016" summary="create models in oop style">
+      <created>1676860273921</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1676860273921</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add random seed">
+      <created>1676860739707</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1676860739707</updated>
+    </task>
+    <task id="LOCAL-00018" summary="modify network names">
+      <created>1676982606548</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1676982606548</updated>
+    </task>
+    <task id="LOCAL-00019" summary="change samples size to follow 70/30 rule">
+      <created>1677036635163</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1677036635163</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add todos'">
+      <created>1677260452140</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1677260452140</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix errors in main">
+      <created>1677490455414</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1677490455414</updated>
+    </task>
+    <task id="LOCAL-00022" summary="debug the problem (not completed)">
+      <created>1677585010862</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1677585010862</updated>
+    </task>
+    <task id="LOCAL-00023" summary="remove convolution loops">
+      <created>1677668330708</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1677668330708</updated>
+    </task>
+    <task id="LOCAL-00024" summary="create model six with multiple kernels">
+      <created>1677767888871</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1677767888871</updated>
+    </task>
+    <task id="LOCAL-00025" summary="improve model six">
+      <created>1677824449396</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1677824449396</updated>
+    </task>
+    <task id="LOCAL-00026" summary="improve fully connected neural network">
+      <created>1677957023876</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1677957023876</updated>
+    </task>
+    <task id="LOCAL-00027" summary="add model seven">
+      <created>1678044150008</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1678044150008</updated>
+    </task>
+    <task id="LOCAL-00028" summary="add TODOs'">
+      <created>1678086804966</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1678086804966</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix model seven">
+      <created>1678157360586</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1678157360586</updated>
+    </task>
+    <task id="LOCAL-00030" summary="train model seven">
+      <created>1678165213353</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1678165213353</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add forward and backward for model seven">
+      <created>1678223415417</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1678223415417</updated>
+    </task>
+    <task id="LOCAL-00032" summary="add todos'">
+      <created>1678224282404</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1678224282404</updated>
+    </task>
+    <task id="LOCAL-00033" summary="delete non-useful file">
+      <created>1679170054818</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1679170054818</updated>
+    </task>
+    <task id="LOCAL-00034" summary="fix minor issue in reshape_all_images function">
+      <created>1679173894224</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1679173894224</updated>
+    </task>
+    <task id="LOCAL-00035" summary="add more activation functions">
+      <created>1679175292904</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1679175292904</updated>
+    </task>
+    <task id="LOCAL-00036" summary="improve model choosing">
+      <created>1679176060764</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1679176060764</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add beep sound at the end of the program" />
+    <MESSAGE value="fix pooling issue" />
+    <MESSAGE value="implement cnn in oop style" />
+    <MESSAGE value="create multiple models to analyze" />
+    <MESSAGE value="modify debugging messages" />
+    <MESSAGE value="create models in oop style" />
+    <MESSAGE value="add random seed" />
+    <MESSAGE value="modify network names" />
+    <MESSAGE value="change samples size to follow 70/30 rule" />
+    <MESSAGE value="fix errors in main" />
+    <MESSAGE value="debug the problem (not completed)" />
+    <MESSAGE value="remove convolution loops" />
+    <MESSAGE value="create model six with multiple kernels" />
+    <MESSAGE value="improve model six" />
+    <MESSAGE value="improve fully connected neural network" />
+    <MESSAGE value="add model seven" />
+    <MESSAGE value="add TODOs'" />
+    <MESSAGE value="fix model seven" />
+    <MESSAGE value="train model seven" />
+    <MESSAGE value="add forward and backward for model seven" />
+    <MESSAGE value="add todos'" />
+    <MESSAGE value="delete non-useful file" />
+    <MESSAGE value="fix minor issue in reshape_all_images function" />
+    <MESSAGE value="add more activation functions" />
+    <MESSAGE value="improve model choosing" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve model choosing" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/neural_network_compression$activate_this.coverage" NAME="main Coverage Results" MODIFIED="1674522355106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python Part" />
+    <SUITE FILE_PATH="coverage/neural_network_compression$main.coverage" NAME="main Coverage Results" MODIFIED="1679429021795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python Part" />
+  </component>
+</project>
