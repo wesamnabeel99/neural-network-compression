@@ -169,12 +169,12 @@ class network_models:
         images_train = reshape_all_images(self.images_train)
         images_test = reshape_all_images(self.images_test)
 
-        images_train = self.cnn.convolve_multiple_kernels(images_train)
+        images_train = self.cnn.convolve(images_train)
         # adding pooling layer seems to improve the accuracy
         images_train = self.cnn.pool(images_train)
         images_train = flatten_all_images(images_train)
 
-        images_test = self.cnn.convolve_multiple_kernels(images_test)
+        images_test = self.cnn.convolve(images_test)
         images_test = self.cnn.pool(images_test)
         images_test = flatten_all_images(images_test)
 

@@ -2,7 +2,7 @@ import datetime
 
 import matplotlib.pyplot as plt
 from utils.date_helper import get_time_format
-
+import numpy as np
 
 def generate_report(accuracy_train, accuracy_test, epoch_size, training_sample_size, testing_sample_size, alpha, input,
                     hidden, output, model_name, hidden_weights, output_weights):
@@ -27,8 +27,22 @@ def generate_report(accuracy_train, accuracy_test, epoch_size, training_sample_s
         f.write(f"Testing Sample Size: {testing_sample_size},")
         f.write(f"Alpha: {alpha}\n")
         f.write(f"Hyper Parameters - Input: {input}, Hidden: {hidden}, Output: {output}\n ")
-        f.write(f"hidden weights ${hidden_weights}\n")
-        f.write(f"output weights ${output_weights}\n")
+        f.write("\n\n\n")
+        # Write the output_weights in C++ style
+        print(output_weights)
+        f.write("output_weights = {")
+        for i in range(output_weights.shape[0]):
+            f.write("{")
+            for j in range(output_weights.shape[1]):
+                f.write(str(output_weights[i, j]))
+                if j < output_weights.shape[1] - 1:
+                    f.write(",")
+            f.write("}")
+            if i < output_weights.shape[0] - 1:
+                f.write(",")
+        f.write("};\n")
+        f.write("\n\n\n")
+
         # Write the header for the accuracy results
         f.write("Epoch,Train Accuracy,Test Accuracy\n")
 
