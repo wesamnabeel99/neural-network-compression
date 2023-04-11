@@ -72,5 +72,5 @@ class cnn_layers():
     def compress_kernel(self, threshold=0.4):
 
         self.kernel[self.kernel < threshold] = 0
-        print("self.kernel", self.kernel)
+#        print("self.kernel", self.kernel)
         return self.kernel

@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="971b3f17-3a15-406a-9fb7-712d757fa700" name="Changes" comment="improve model choosing">
+    <list default="true" id="971b3f17-3a15-406a-9fb7-712d757fa700" name="Changes" comment="store the weights in cpp style">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/cnn.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/network_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/read_mnist_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/read_mnist_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/report_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/report_generator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,6 +88,9 @@
       <module name="neural-network-compression-python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="C:\Users\Wesam Nabeel\PycharmProjects\neural-network-compression-python\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -105,7 +110,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f35aefc6-b3df-47a0-8c3a-ee7ac9306af3" name="Changes" comment="" />
+      <changelist id="971b3f17-3a15-406a-9fb7-712d757fa700" name="Changes" comment="store the weights in cpp style" />
       <created>1672587703644</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -156,6 +161,9 @@
       <workItem from="1678482918883" duration="1391000" />
       <workItem from="1679160238541" duration="6577000" />
       <workItem from="1679425352655" duration="1677000" />
+      <workItem from="1681125658800" duration="5451000" />
+      <workItem from="1681154831750" duration="3931000" />
+      <workItem from="1681189019649" duration="691000" />
     </task>
     <task id="LOCAL-00001" summary="improve csv file read">
       <created>1676482814519</created>
@@ -409,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679176060764</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="store the weights in cpp style">
+      <created>1681052000838</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1681052000838</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,7 +442,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add beep sound at the end of the program" />
     <MESSAGE value="fix pooling issue" />
     <MESSAGE value="implement cnn in oop style" />
     <MESSAGE value="create multiple models to analyze" />
@@ -452,21 +466,22 @@
     <MESSAGE value="fix minor issue in reshape_all_images function" />
     <MESSAGE value="add more activation functions" />
     <MESSAGE value="improve model choosing" />
-    <option name="LAST_COMMIT_MESSAGE" value="improve model choosing" />
+    <MESSAGE value="store the weights in cpp style" />
+    <option name="LAST_COMMIT_MESSAGE" value="store the weights in cpp style" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/utils/report_generator.py</url>
-          <line>32</line>
+          <line>33</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/neural_network_compression_python$main.coverage" NAME="main Coverage Results" MODIFIED="1681050890677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/neural_network_compression_python$main.coverage" NAME="main Coverage Results" MODIFIED="1681155437532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/neural_network_compression$activate_this.coverage" NAME="main Coverage Results" MODIFIED="1674522355106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python Part" />
     <SUITE FILE_PATH="coverage/neural_network_compression$main.coverage" NAME="main Coverage Results" MODIFIED="1679429021795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Python Part" />
   </component>

@@ -29,18 +29,20 @@ def generate_report(accuracy_train, accuracy_test, epoch_size, training_sample_s
         f.write(f"Hyper Parameters - Input: {input}, Hidden: {hidden}, Output: {output}\n ")
         f.write("\n\n\n")
         # Write the output_weights in C++ style
-        print(output_weights)
+        output_weights = output_weights.T
+        scale = 10000
         f.write("output_weights = {")
         for i in range(output_weights.shape[0]):
             f.write("{")
             for j in range(output_weights.shape[1]):
-                f.write(str(output_weights[i, j]))
+                f.write(str(output_weights[i, j] * scale))
                 if j < output_weights.shape[1] - 1:
                     f.write(",")
             f.write("}")
             if i < output_weights.shape[0] - 1:
                 f.write(",")
         f.write("};\n")
+        f.write(f"scale:{scale}")
         f.write("\n\n\n")
 
         # Write the header for the accuracy results
