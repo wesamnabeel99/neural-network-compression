@@ -1,11 +1,6 @@
-import numpy as np
-
 from lib.activation_functions import *
 from utils.report_generator import generate_report
 
-
-# TODO: create new class that look similar to this, but have only input, output layers, move the functions that do forward and backward for (input, output) layers only to the new class
-# TODO: the goal is to make this class have (input, hidden, output) layers, and make the new class have (input, output), with their forward and backward functions
 class dnn_layers:
     def __init__(self, input_neurons, hidden_neurons, output_neurons):
         self.input_neurons = input_neurons
