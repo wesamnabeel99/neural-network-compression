@@ -16,10 +16,16 @@ test_sample_size = 0.3 * sample_size
 images_train, labels_train = read_mnist_data(constants.MNIST_TRAIN_FILEPATH, train_sample_size)
 images_test, labels_test = read_mnist_data(constants.MNIST_TEST_FILEPATH, test_sample_size)
 
+kernel_size= int(input("Please enter the kernel size:"))
+number_of_kernels = int(input("Please enter the number of kernels"))
+alpha = float(input("Learning Rate:"))
+epochs = int(input("Epochs:"))
+hidden = int(input("Hidden:"))
+
 
 network_models = network_models(
     images_train=images_train, labels_train=labels_train, images_test=images_test, labels_test=labels_test,
-    n_kernels=3, kernel_size=3, epoch=40, alpha=0.1, hidden=100
+    n_kernels=number_of_kernels, kernel_size=kernel_size, epoch=epochs, alpha=alpha, hidden=100
 )
 
 while True:
